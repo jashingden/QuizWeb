@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" media="(max-width: 640px)" href="max-640px.css">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.4.2/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.4.2/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.4.2/firebase-database.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <!--<script defer src="/__/firebase/init.js"></script>-->
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+  <nav>
+  <ul class="fancyNav">
+  <li id="q_reset"><a href="#" onclick="resetGame();">重新開始</a></li>
+  <li id="q_pick"><a href="#" onclick="pickPlayer();">下一位參賽者</a></li>
+  <li id="q_pls_ans"><a href="#" onclick="pleaseAnswer();">請作答</a></li>
+  <li id="q_show_ans"><a href="#" onclick="showAnswer();">解答</a></li>
+  </ul>
+  </nav>
+  <div id="content" class="content">
+  <table id="bingotable">
+  <tr>
+  <td id="square0"> &nbsp;</td>
+  <td id="square1"> &nbsp;</td>
+  <td id="square2"> &nbsp;</td>
+  <td id="square3"> &nbsp;</td>
+  <td id="square4"> &nbsp;</td>
+  </tr>
+  <tr>
+  <td id="square5"> &nbsp;</td>
+  <td id="square6"> &nbsp;</td>
+  <td id="square7"> &nbsp;</td>
+  <td id="square8"> &nbsp;</td>
+  <td id="square9"> &nbsp;</td>
+  </tr>
+  <tr>
+  <td id="square10"> &nbsp;</td>
+  <td id="square11"> &nbsp;</td>
+  <td id="square12"> &nbsp;</td>
+  <td id="square13"> &nbsp;</td>
+  <td id="square14"> &nbsp;</td>
+  </tr>
+  <tr>
+  <td id="square15"> &nbsp;</td>
+  <td id="square16"> &nbsp;</td>
+  <td id="square17"> &nbsp;</td>
+  <td id="square18"> &nbsp;</td>
+  <td id="square19"> &nbsp;</td>
+  </tr>
+  <tr>
+  <td id="square20"> &nbsp;</td>
+  <td id="square21"> &nbsp;</td>
+  <td id="square22"> &nbsp;</td>
+  <td id="square23"> &nbsp;</td>
+  <td id="square24"> &nbsp;</td>
+  </tr>
+  </table>
+  </div>
+  <div id="question" class="question">
+  <h1 id="q_player">參賽者 : </h1>
+  <div>
+<!--
+  <table class="question">
+  <tr>
+    <th rowspan="3"><img src="master.jpg" class="master"></th>
+    <td id="q_no" class="no"></td>
+  </tr>
+  <tr>
+    <td id="q_quiz" class="quiz"></td>
+  </tr>
+  <tr>
+    <td id="q_ans" class="ans"></td>
+  </tr>
+  </table>
+  <div id="countdown">
+    <div id="countdown-number"></div>
+    <svg>
+      <circle r="180" cx="200" cy="200"></circle>
+    </svg>
+  </div>
+  <table id="p_answer" class="answer">
+  <tr>
+  <td id="p_ans1" class="pans"></td>
+  <td id="p_ans2" class="pans"></td>
+  <td id="p_ans3" class="pans"></td>
+  <td id="p_ans4" class="pans"></td>
+  </tr>
+  </table>
+  <div id="q_desc" class="desc"></div>
+-->
+  </body>
+</html>

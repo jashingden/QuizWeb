@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz Player</title>
+    <link rel="stylesheet" href="player.css">
+    <!--<link rel="stylesheet" media="(max-width: 640px)" href="max-640px.css">-->
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.4.2/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.4.2/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.4.2/firebase-database.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <!--<script defer src="/__/firebase/init.js"></script>-->
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+    <script defer src="player.js"></script>
+  </head>
+  <body>
+<div id="p_form">
+姓名：<input type="text" id="p_name" name="p_name">
+<br>
+性別：
+<input type="radio" id="p_sex" name="p_sex" value="man" checked="true">乾道
+<input type="radio" id="p_sex" name="p_sex" value="woman">坤道
+<br>
+年齡：
+<input type="radio" id="p_age" name="p_age" value="0" checked="true">20歲以下
+<input type="radio" id="p_age" name="p_age" value="21">21～35歲
+<input type="radio" id="p_age" name="p_age" value="36">36～55歲
+<input type="radio" id="p_age" name="p_age" value="56">56歲以上
+<br>
+手機號碼：<input type="text" id="p_mobile" name="p_mobile">
+<br>
+電子郵件：<input type="text" id="p_email" name="p_email">
+<br>
+<button class="answer" onclick="sendPlayer();">送出</button>
+</div>
+<div id="p_question" style="display: none">
+  <h1 id="p_id" style="display: inline-block"></h1> &nbsp;<button class="answer" onclick="changePlayer();">更換</button>
+  <table class="question">
+  <tr>
+    <td id="p_cat" class="no"></td>
+  </tr>
+  <tr>
+    <td id="p_quiz" class="quiz"></td>
+  </tr>
+  <tr>
+    <td class="ans"><textarea id="p_ans"></textarea></td>
+  </tr>
+  </table>
+  <button class="answer" onclick="sendAnswer(1);">送出答案</button>
+  <div id="p_ans_ok"></div>
+</div>
+  </body>
+</html>

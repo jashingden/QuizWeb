@@ -1,0 +1,35 @@
+<style>
+*{
+margin:0;
+padding:0;
+}
+body{
+background:url('bg2.jpg');
+background-repeat:no-repeat;
+background-size:cover;
+font-size:medium;
+}
+td.no{
+border:4px #FFD382 groove;
+padding:5px;
+}
+td.quiz{
+border:4px #FFD382 groove;
+padding:5px;
+}
+img.master{
+max-width:101px;
+max-height:125px;
+}
+.fancyNav li a{
+color: #5d5d5d;
+display: inline-block;
+font: 16px/1 Lobster,Arial,sans-serif;
+padding: 5px 15px 5px;
+position: relative;
+text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+z-index:2;
+text-decoration:none !important;
+white-space:nowrap;
+}
+</style>
