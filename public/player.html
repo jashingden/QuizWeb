@@ -36,20 +36,23 @@
 <br>
 <button class="answer" onclick="sendPlayer();">送出</button>
 </div>
+
 <div id="p_question" style="display: none">
   <h1 id="p_id" style="display: inline-block"></h1> &nbsp;<button class="answer" onclick="changePlayer();">更換</button>
   <table class="question">
   <tr>
-    <td id="p_cat" class="no"></td>
+    <td id="p_quiz" colspan="4" class="quiz"></td>
   </tr>
+  <tr><td style="height:30px"></td></tr>
   <tr>
-    <td id="p_quiz" class="quiz"></td>
+    <td id="p_opt0" onclick="pickAnswer(0)" class="ans"></td>
+    <td id="p_opt1" onclick="pickAnswer(1)" class="ans"></td>
+    <td id="p_opt2" onclick="pickAnswer(2)" class="ans"></td>
+    <td id="p_opt3" onclick="pickAnswer(3)" class="ans"></td>
   </tr>
-  <tr>
-    <td class="ans"><textarea id="p_ans"></textarea></td>
-  </tr>
+  <tr><td style="height:30px"></td></tr>
   </table>
-  <button class="answer" onclick="sendAnswer(1);">送出答案</button>
+  <button class="answer" onclick="sendAnswer();">送出答案</button>
   <div id="p_ans_ok"></div>
 </div>
   </body>

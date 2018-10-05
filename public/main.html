@@ -21,63 +21,55 @@
   <ul class="fancyNav">
   <li id="q_reset"><a href="#" onclick="resetGame();">重新開始</a></li>
   <li id="q_pick"><a href="#" onclick="pickPlayer();">下一位參賽者</a></li>
-  <li id="q_pls_ans"><a href="#" onclick="pleaseAnswer();">請作答</a></li>
-  <li id="q_show_ans"><a href="#" onclick="showAnswer();">解答</a></li>
+  <li id="q_show_ans"><a href="#" onclick="showAnswer();">請解答</a></li>
   </ul>
   </nav>
   <div id="content" class="content">
-  <table id="bingotable">
-  <tr>
-  <td id="square0"> &nbsp;</td>
-  <td id="square1"> &nbsp;</td>
-  <td id="square2"> &nbsp;</td>
-  <td id="square3"> &nbsp;</td>
-  <td id="square4"> &nbsp;</td>
+  <table id="bingotable" class="bingo">
+  <tr class="bingo">
+  <td id="square0" class="bingo" onclick="pickQuestion(0)"> &nbsp;</td>
+  <td id="square1" class="bingo" onclick="pickQuestion(1)"> &nbsp;</td>
+  <td id="square2" class="bingo" onclick="pickQuestion(2)"> &nbsp;</td>
+  <td id="square3" class="bingo" onclick="pickQuestion(3)"> &nbsp;</td>
+  <td id="square4" class="bingo" onclick="pickQuestion(4)"> &nbsp;</td>
   </tr>
-  <tr>
-  <td id="square5"> &nbsp;</td>
-  <td id="square6"> &nbsp;</td>
-  <td id="square7"> &nbsp;</td>
-  <td id="square8"> &nbsp;</td>
-  <td id="square9"> &nbsp;</td>
+  <tr class="bingo">
+  <td id="square5" class="bingo" onclick="pickQuestion(5)"> &nbsp;</td>
+  <td id="square6" class="bingo" onclick="pickQuestion(6)"> &nbsp;</td>
+  <td id="square7" class="bingo" onclick="pickQuestion(7)"> &nbsp;</td>
+  <td id="square8" class="bingo" onclick="pickQuestion(8)"> &nbsp;</td>
+  <td id="square9" class="bingo" onclick="pickQuestion(9)"> &nbsp;</td>
   </tr>
-  <tr>
-  <td id="square10"> &nbsp;</td>
-  <td id="square11"> &nbsp;</td>
-  <td id="square12"> &nbsp;</td>
-  <td id="square13"> &nbsp;</td>
-  <td id="square14"> &nbsp;</td>
+  <tr class="bingo">
+  <td id="square10" class="bingo" onclick="pickQuestion(10)"> &nbsp;</td>
+  <td id="square11" class="bingo" onclick="pickQuestion(11)"> &nbsp;</td>
+  <td id="square12" class="bingo" onclick="pickQuestion(12)"> &nbsp;</td>
+  <td id="square13" class="bingo" onclick="pickQuestion(13)"> &nbsp;</td>
+  <td id="square14" class="bingo" onclick="pickQuestion(14)"> &nbsp;</td>
   </tr>
-  <tr>
-  <td id="square15"> &nbsp;</td>
-  <td id="square16"> &nbsp;</td>
-  <td id="square17"> &nbsp;</td>
-  <td id="square18"> &nbsp;</td>
-  <td id="square19"> &nbsp;</td>
+  <tr class="bingo">
+  <td id="square15" class="bingo" onclick="pickQuestion(15)"> &nbsp;</td>
+  <td id="square16" class="bingo" onclick="pickQuestion(16)"> &nbsp;</td>
+  <td id="square17" class="bingo" onclick="pickQuestion(17)"> &nbsp;</td>
+  <td id="square18" class="bingo" onclick="pickQuestion(18)"> &nbsp;</td>
+  <td id="square19" class="bingo" onclick="pickQuestion(19)"> &nbsp;</td>
   </tr>
-  <tr>
-  <td id="square20"> &nbsp;</td>
-  <td id="square21"> &nbsp;</td>
-  <td id="square22"> &nbsp;</td>
-  <td id="square23"> &nbsp;</td>
-  <td id="square24"> &nbsp;</td>
+  <tr class="bingo">
+  <td id="square20" class="bingo" onclick="pickQuestion(20)"> &nbsp;</td>
+  <td id="square21" class="bingo" onclick="pickQuestion(21)"> &nbsp;</td>
+  <td id="square22" class="bingo" onclick="pickQuestion(22)"> &nbsp;</td>
+  <td id="square23" class="bingo" onclick="pickQuestion(23)"> &nbsp;</td>
+  <td id="square24" class="bingo" onclick="pickQuestion(24)"> &nbsp;</td>
   </tr>
   </table>
   </div>
   <div id="question" class="question">
-  <h1 id="q_player">參賽者 : </h1>
-  <div>
-<!--
   <table class="question">
   <tr>
-    <th rowspan="3"><img src="master.jpg" class="master"></th>
-    <td id="q_no" class="no"></td>
+    <td id="q_player" class="player">參賽者 :</td>
   </tr>
   <tr>
     <td id="q_quiz" class="quiz"></td>
-  </tr>
-  <tr>
-    <td id="q_ans" class="ans"></td>
   </tr>
   </table>
   <div id="countdown">
@@ -86,15 +78,22 @@
       <circle r="180" cx="200" cy="200"></circle>
     </svg>
   </div>
-  <table id="p_answer" class="answer">
+  <table class="answer">
+  <tr><td style="height:30px"></td></tr>
   <tr>
-  <td id="p_ans1" class="pans"></td>
-  <td id="p_ans2" class="pans"></td>
-  <td id="p_ans3" class="pans"></td>
-  <td id="p_ans4" class="pans"></td>
+  <td id="p_opt0" onclick="pickAnswer(0)" class="pans"></td>
+  <td id="p_opt1" onclick="pickAnswer(1)" class="pans"></td>
+  <td id="p_opt2" onclick="pickAnswer(2)" class="pans"></td>
+  <td id="p_opt3" onclick="pickAnswer(3)" class="pans"></td>
   </tr>
   </table>
-  <div id="q_desc" class="desc"></div>
--->
+  <nav>
+  <ul class="fancyNav">
+  <li id="h_erase_ans"><a href="#" onclick="helpEraseAnswer();">去蕪存菁</a></li>
+  <li id="h_call_out"><a href="#" onclick="helpCallOut();">抱佛腳</a></li>
+  <li id="h_people_ans"><a href="#" onclick="helpPeopleAnswer();">支援前線</a></li>
+  </ul>
+  </nav>
+  </div>
   </body>
 </html>

@@ -20,17 +20,39 @@
       var p_age = document.getElementsByName("p_age");
       var p_mobile = document.getElementById("p_mobile");
       var p_email = document.getElementById("p_email");
+      var p_quiz = document.getElementById("p_quiz");
+      var p_ans_ok = document.getElementById("p_ans_ok");
+      var player, question;
+      var p_answer = -1;
+      var p_options = [];
+      p_options.push(document.getElementById("p_opt0"));
+      p_options.push(document.getElementById("p_opt1"));
+      p_options.push(document.getElementById("p_opt2"));
+      p_options.push(document.getElementById("p_opt3"));
 
       console.log('cookie: '+document.cookie)
       if (-1 != document.cookie.indexOf("player=")) {
+        player = cookie('player');
         p_form.style.display = "none";
         p_question.style.display = "block";
-        p_id.innerHTML = (cookie('sex')=="man"?"乾道":"坤道")+"－"+cookie('player');
+        p_id.innerHTML = (cookie('sex')=="man"?"乾道":"坤道")+"－"+player;
+
+        firebase.database().ref('question/quiz').on('value', function(snapshot) {
+           question = snapshot.val();
+           console.log('question='+question);
+           pickAnswer(-1);
+           p_ans_ok.innerHTML = '';
+           if (typeof question != "undefined") {
+             p_quiz.innerHTML = question.quiz;
+             for (var i = 0; i < question.options.length; i++) {
+               p_options[i].innerHTML = '('+(i+1)+') '+question.options[i];
+               }
+             }
+         });
        }
 
 function getSelected(radio) {
-  var i, r;
-  for (i = 0; i < radio.length; i++) {
+  for (var i = 0; i < radio.length; i++) {
     if (radio[i].checked) {
       return radio[i].value;
      }
@@ -62,13 +84,12 @@ function sendPlayer() {
 
 function changePlayer() {
   delCookie('player');
-  p_form.style.display = "block";
-  p_question.style.display = "none";
+  location.reload();
 }
 
 function setCookie(name, value) {
   var date = new Date();
-  date.setTime(date.getTime() + 60 * 60 * 1000); //60min
+  date.setTime(date.getTime() + 12 * 60 * 60 * 1000); //12 hours
   var str = name + "=" + escape(value) + ";expires=" + date.toGMTString();
   document.cookie = str;
   console.log('cookie: '+document.cookie)
@@ -88,30 +109,23 @@ function cookie(name){
   } 
   return ""; 
 }
-/*
-      var p_no = document.getElementById("p_no");
-      var p_quiz = document.getElementById("p_quiz");
-      var p_ans = document.getElementById("p_ans");
-      var p_ans_ok = document.getElementById("p_ans_ok");
-      var questionIdx = -1;
-      var question;
-      firebase.database().ref('game/question').on('value', function(snapshot) {
-        questionIdx = snapshot.val();
-        console.log('questionIdx='+questionIdx);
-        p_no.innerHTML = '第'+(questionIdx+1)+'題';
-        p_ans.value = '';
-        p_ans_ok.innerHTML = '';
 
-        firebase.database().ref('questions/'+questionIdx).on('value', function(snapshot) {
-          question = snapshot.val();
-          console.log(question);
-          p_quiz.innerHTML = question.quiz;
-          });
-       });
-
-function sendAnswer(player) {
-  console.log('sendAnswer='+p_ans.value);
-  firebase.database().ref('game/answer'+player).set(p_ans.value);
-  p_ans_ok.innerHTML = '已送出！';
+function pickAnswer(idx) {
+  p_answer = idx;
+  refreshOptions();
 }
-*/
+
+function refreshOptions() {
+  for (var i = 0; i < p_options.length; i++) {
+    p_options[i].style.border = (p_answer == i) ? "8px #FFD382 groove" : '';
+  }
+}
+
+function sendAnswer() {
+  //console.log('sendAnswer='+p_answer+' player='+player);
+  if (typeof player != "undefined") {
+    firebase.database().ref('question/ans/'+player).set(p_answer);
+    p_ans_ok.innerHTML = '已送出！';
+  }
+}
+
